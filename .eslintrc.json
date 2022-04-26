@@ -48,6 +48,11 @@
     "react/require-default-props": "warn",
     "prefer-rest-params": "warn",
     "jest/no-conditional-expect": "off",
-    "react/destructuring-assignment": "off"
+    "react/destructuring-assignment": "off",
+    "no-unneeded-ternary": "off",
+    "react/function-component-definition": "off",
+    "react/jsx-boolean-value": "warn",
+    "react/no-unused-prop-type": "off",
+    "react/self-closing-comp": "warn"
   }
 }

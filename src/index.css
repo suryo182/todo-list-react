@@ -1,1 +1,12 @@
-@import 'antd/dist/antd.css'
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap");
+
+@tailwind base;
+
+@layer base {
+  body {
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
