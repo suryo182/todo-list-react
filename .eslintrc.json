@@ -47,6 +47,7 @@
     "import/prefer-default-export": "warn",
     "react/require-default-props": "warn",
     "prefer-rest-params": "warn",
-    "jest/no-conditional-expect": "off"
+    "jest/no-conditional-expect": "off",
+    "react/destructuring-assignment": "off"
   }
 }
