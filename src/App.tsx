@@ -153,12 +153,13 @@ function App() {
         </ModalContent>
       </Modal>
 
-      <h1 className="text-center font-semibold text-2xl mb-12">
+      <h1 className="text-center font-bold text-4xl mb-12 text-gray-600">
         React To Do List App
       </h1>
 
       <div className="flex justify-center mb-12">
-        <button
+        <Button
+          colorScheme="blue"
           type="button"
           onClick={() => {
             setAddTodoModal((prevState: any) => ({
@@ -166,15 +167,15 @@ function App() {
               isOpen: true,
             }));
           }}
-          className="border border-transparent hover:border-gray-800 rounded-md bg-slate-200 py-1 px-4 duration-300 ease-out"
+          width={100}
         >
           Add
-        </button>
+        </Button>
       </div>
       <div className="grid grid-cols-2 gap-x-4">
         <div>
           <span className="font-semibold text-xl text-gray-600 mb-4 block">
-            Todo
+            Todo:
           </span>
           <ul className="flex flex-col gap-y-1">
             {todoList.length > 0 ? (
@@ -195,7 +196,7 @@ function App() {
         </div>
         <div>
           <span className="font-semibold text-xl text-gray-600 mb-4 block">
-            Done
+            Done:
           </span>
           <ul className="flex flex-col gap-y-1">
             {doneList.length > 0 &&

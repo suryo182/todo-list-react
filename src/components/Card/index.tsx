@@ -32,6 +32,7 @@ const Card = ({
   const finalRef = useRef<HTMLDivElement>(null);
   const [modal, setModal] = useState<any | {}>({
     isOpen: false,
+    isEdit: false,
     modalTitle: "",
   });
 
@@ -47,6 +48,7 @@ const Card = ({
     setModal((prevState: any) => ({
       ...prevState,
       isOpen: false,
+      isEdit: false,
     }));
     setDeleteModal((prevState: any) => ({
       ...prevState,
@@ -67,6 +69,13 @@ const Card = ({
     <li
       className="flex justify-between items-center py-2 px-4 bg-slate-200 rounded-md cursor-pointer"
       key={todo.id}
+      onClick={() => {
+        setModal((prevState: any) => ({
+          ...prevState,
+          isOpen: true,
+          ...todo,
+        }));
+      }}
     >
       <Modal
         initialFocusRef={initialRef}
@@ -118,6 +127,7 @@ const Card = ({
                     [e.target.name]: e.target.value,
                   }))
                 }
+                isReadOnly={modal?.isEdit ? false : true}
               />
             </FormControl>
             <FormControl>
@@ -131,6 +141,7 @@ const Card = ({
                     [e.target.name]: e.target.value,
                   }))
                 }
+                isReadOnly={modal?.isEdit ? false : true}
               />
             </FormControl>
           </ModalBody>
@@ -179,8 +190,8 @@ const Card = ({
       </div>
       {!disableActions && (
         <div className="flex gap-x-2">
-          <button
-            type="button"
+          <Button
+            colorScheme="red"
             className="border border-transparent hover:border-red-500 rounded-md bg-white py-1 px-4 duration-300 ease-out"
             onClick={() => {
               setDeleteModal((prevState: any) => ({
@@ -191,23 +202,24 @@ const Card = ({
             }}
           >
             Delete
-          </button>
-          <button
-            type="button"
+          </Button>
+          <Button
+            colorScheme="blue"
             className="border border-transparent hover:border-blue-500 rounded-md bg-white py-1 px-4 duration-300 ease-out"
             onClick={() => {
               setModal((prevState: any) => ({
                 ...prevState,
                 isOpen: true,
+                isEdit: true,
                 modalTitle: "Edit Todo",
                 ...todo,
               }));
             }}
           >
             Edit
-          </button>
-          <button
-            type="button"
+          </Button>
+          <Button
+            colorScheme="green"
             className="border border-transparent hover:border-blue-500 rounded-md bg-white py-1 px-4 duration-300 ease-out"
             onClick={() => {
               setIsDoneModal((prevState: any) => ({
@@ -218,7 +230,7 @@ const Card = ({
             }}
           >
             Mark as Done
-          </button>
+          </Button>
         </div>
       )}
     </li>
