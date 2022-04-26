@@ -1,0 +1,52 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:import/typescript",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "rules": {
+    "quotes": [
+      "error",
+      "double",
+      {
+        "avoidEscape": true
+      }
+    ],
+    "@typescript-eslint/quotes": [
+      "error",
+      "double",
+      {
+        "avoidEscape": true
+      }
+    ],
+    "object-curly-newline": "off",
+    "max-len": "off",
+    "react/react-in-jsx-scope": "warn",
+    "@typescript-eslint/return-await": "off",
+    "@typescript-eslint/default-param-last": "off",
+    "@typescript-eslint/naming-convention": "off",
+    "react/jsx-no-constructed-context-values": "off",
+    "import/prefer-default-export": "warn",
+    "react/require-default-props": "warn",
+    "prefer-rest-params": "warn",
+    "jest/no-conditional-expect": "off"
+  }
+}
