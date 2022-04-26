@@ -69,13 +69,6 @@ const Card = ({
     <li
       className="flex justify-between items-center py-2 px-4 bg-slate-200 rounded-md cursor-pointer"
       key={todo.id}
-      onClick={() => {
-        setModal((prevState: any) => ({
-          ...prevState,
-          isOpen: true,
-          ...todo,
-        }));
-      }}
     >
       <Modal
         initialFocusRef={initialRef}
@@ -184,7 +177,15 @@ const Card = ({
         </ModalContent>
       </Modal>
 
-      <div>
+      <div
+        onClick={() => {
+          setModal((prevState: any) => ({
+            ...prevState,
+            isOpen: true,
+            ...todo,
+          }));
+        }}
+      >
         <span className="text-base font-medium">{todo.title}</span>
         <p className="text-sm font-normal">{todo.description}</p>
       </div>
